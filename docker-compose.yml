@@ -12,9 +12,13 @@ services:
       - bundle_cache
     environment:
       - BUNDLE_PATH=/bundle_cache
+    environment:
+      - DATABASE_HOST=db
+      - DATABASE_USERNAME=postgres
+
   db:
     image: postgres:10.3-alpine
   bundle_cache:
     image: busybox
     volumes:
-      - /bundle_caches
+      - /bundle_cache
